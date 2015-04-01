@@ -17,9 +17,9 @@ def intro():
                          " You're walking down the street and you see a sweet "+\
                          "old lady trip and fall on her face.")
     oldlady = simpledialog.askinteger (" Please type the number corresponding to your desired class.",
-                                    " To help the old lady up, press 1 " +\
+                                    " To steal her purse while she's down, press 1 " +\
                                     " To mind your own buissness and walk past, press 2. " +\
-                                    " To steal her purse while she's down, press 3.")
+                                    " To help her up, press 3.")
 
 
     if oldlady == 1:
