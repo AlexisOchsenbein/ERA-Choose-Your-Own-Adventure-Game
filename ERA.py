@@ -175,18 +175,31 @@ def choice1():
 
 ############################## Alexis' Function #################################
 def choice2():
-    choice = simpledialog.askinteger("Choose wisely",
-                                     "This is the next part of the story.  Now you must choose 1 or 2 again.")
-    if (choice == 1):
+    choice = messagebox.showinfo("You walk past her",
+                                     " Trying to avoid eye contact with the old lady you quickly"+\
+                                     "  pull your hand up to your face and sheild your view of her as"+
+                                     " you walk past her, leaving her struggling to get up. After crossing"+\
+                                     " the street you look to where the old lady was still attempting to get"+\
+                                     " to her feet and think about going back to help her.")
+
+    messagebox.showinfo ("Help or Leave",
+                             "As you sit there the old lady glances across the steet and notices you."+\
+                             "You are left with the choice to either go and help her up or turn "+\
+                             "around and leave her in the street.")
+        
+    leaveorhelp = simpledialog.askinteger ( "Help or Leave",
+                                              "Press 1 to help, or 2 to leave."
+                                              "You decide to...")
+                              
+
+                         
+    if (leaveorhelp == 1):
         messagebox.showinfo("The End",
                             "You chose right1.  THE END")
 
-    elif (choice == 2):
+    elif (leaveorhelp == 2):
         messagebox.showinfo("The End",
                             "You chose ok2.  THE END")
-    elif (choice == 3):
-        messagebox.showinfo("The End",
-                            "You chose ok3.  THE END")
         
     else:
         choice2()
