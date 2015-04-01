@@ -88,8 +88,18 @@ def choice2():
 
                          
     if (leaveorhelp == 1):
-        messagebox.showinfo("The End",
-                            "You chose right1.  THE END")
+        messagebox.showinfo("Change of Heart",
+                            "You feel bad for leaving the old lady laying in  the street"+\
+                            "and you go back to help her up. She struggles for a momnet but"+\
+                            "seems alright when she finally gets to her feet.'Why thank you"+\
+                            "young traveler, I would have never been able to get up all by my"+\
+                            "self. I appreciate your assistance!'she says while fishing around"+\
+                            "in her purse. After a moment she pulls out an old tatterd look paper"+\
+                            "and places it in your hand.'I think you deserve this for your good deed"+\
+                            "today,it is very fragile but of great importance! Do not loose this and"+\
+                            "make sure you are well prepared before setting off. Have a nice day now.'"+\
+                            "She takes off down the street as you stare at the paper in your hand.")
+        messagebox.showinfo()
 
     elif (leaveorhelp == 2):
         messagebox.showinfo("The End",
