@@ -25,7 +25,7 @@ def intro():
     if oldlady == 1:
         choice1()
     elif oldlady == 2:
-        choice2()
+        ignoreOldLady()
     elif oldlady == 3:
         choice3()
     else:
@@ -68,7 +68,7 @@ def choice1():
 
 
 ############################## Alexis' Function #################################
-def choice2():
+def ignoreOldLady():
     choice = messagebox.showinfo("Walk Past Her",
                                      " Trying to avoid eye contact with the old lady you quickly"+\
                                      "  pull your hand up to your face and sheild your view of her as"+
@@ -99,14 +99,24 @@ def choice2():
                             " today,it is very fragile but of great importance! Do not loose this and"+\
                             " make sure you are well prepared before setting off. Have a nice day now.'"+\
                             " She takes off down the street as you stare at the paper in your hand.")
-        messagebox.showinfo()
+        
+        messagebox.showinfo("The Map",
+                            "You unfold the paper in your hand very carefully. Finally "+\
+                            " opening the entire paper you realize this is a treasure map!"+\
+                            " As you study the map you think back to what the old lady had said."+\
+                            " 'She said something about being well prepaired'")
 
     elif (leaveorhelp == 2):
-        messagebox.showinfo("The End",
-                            "You chose ok2.  THE END")
+        messagebox.showinfo("Ignore Her",
+                            "You decide she dosent need your help and walk away."+\
+                            " You walk around town and look through the shops, forgetting"+\
+                            " about the old lady. Eventually you get bored and go home to"+\
+                            " live out your boring life. THE END.")
         
     else:
         choice2()
+
+
 
 
 
