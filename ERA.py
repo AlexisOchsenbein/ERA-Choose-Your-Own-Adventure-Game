@@ -7,12 +7,10 @@ from tkinter import *
 import tkinter.simpledialog
 import tkinter.messagebox
 import random
+
 root = Tk()
 w = Label(root, text="ERA")
 w.pack()
-
-
-        
 
 def intro():
     """Start of the story"""
@@ -57,33 +55,37 @@ def choice1():
     messagebox.showinfo(" Lost",
                             " You walk for a couple hours, trying to remember all of the map"+\
                             " you can, and have been successful so far, until now. You don't"+\
-                            " remember if you should go left or right.")
+                            " remember if you should go striaght, left or right.")
 
     leftorright= simpledialog.askinteger ("Left or Right?",
-                             " Press 1 for right, or 2 for left.")
+                             " Press 1 for right, or 2 for left, or 3 for striaght.")
 
     if leftorright ==1:
-        Rchoice1()
+        right()
     elif leftorright ==2:
-        Rchoice2()
-
-def Rchoice1 ():
+        left()
+    elif leftorright ==3:
+        striaght()
+    
+def right():
     messagebox.showinfo(" Right",
-                        " You try to remember, and you're fairly certain the map said to go right."+\
+                        " You try to remember, adn you're fairly certain the map said to go right."+\
                         " You turn right, and after a bit of walking, you come to a dungeon, just like"+\
                         " the one the map described! You go down into the dungeon, and trip on a rock."+\
                         " You tumble down into a giant open room with a sleeping dragon, which is now awake"+\
                         " because of you. The giant dragon stands up and prepares to attack.")
-           
-            
-    attack = simpledialog.askinteger (" Press 1 to attack.",
-                                      " To attack, press 1. ") 
-    if attack ==1:                
-        dragonhp = random.randint (15,50)
-        dragondmg = random.randint (5, 15)
-        playerhealth = random.randint (20, 30)
-        playerdamage = random.randint (5, 25)
-        while playerhealth >= 0 or dragonhp >= 0:
+
+    dragonhp = random.randint (15,50)
+    dragondmg = random.randint (5, 15)
+    playerhealth = random.randint (20, 30)
+    playerdamage = random.randint (5, 25)
+    while playerhealth >= 0 or dragonhp >= 0:
+        attack = simpledialog.askinteger (" Press 1 to attack.",
+                                                  " To attack, press 1. " )
+        
+
+
+        if attack == 1:
             dragonhp -= playerdamage
             playerhealth -= dragondmg
             messagebox.showinfo ("Dragon Battle",
@@ -96,17 +98,8 @@ def Rchoice1 ():
     if playerhealth <= 0:
         messagebox.showinfo("You died",
                                 "The dragon burnt you with his firey breath, leaving"+\
-                                " you dead on the floor, so close to the treasure.")
-
-    elif playerhealth <= 0 and dragonhp <= 0:
-        messagebox.showinfo("You both died",
-                                " You both fall dead to the floor. You didn't live, but"+\
-                                " you're happy that you killed the dragon too. In your last moment"+\
-                                " of life, as the dragon's flames consume you, you see the"+\
-                                " old woman run in, activate a hidden door on the wall, revealing the."+\
-                                " treasure. She grabs as much as she can carry, and runs out with, smiling"+\
-                                "  and thanking you as she runs past.")                           
-        root.destroy
+                                " you dead, so close to the treasure.")
+        root.destroy()
     elif playerhealth >= 1:
         messagebox.showinfo (" You won ",
                                  " Somehow, you managed to slay the dragon.")
@@ -120,17 +113,15 @@ def Rchoice1 ():
                                      " 'See!? How does it feel huh??? Not very good! Thats what you deserve'."+\
                                      " she shouts at you as she runs away laughing, leaving you on the ground"+\
                                      " with nothing.")
-        root.destroy
-
+        root.destroy()
                 
                                 
                                      
-       
                                 
 
 
-    
-def Rchoice2 ():
+
+def left():
     messagebox.showinfo(" Left",
                              " You begin walking left. You walk for an hour or so with no signs of the dungeon the"+\
                              " map described. You do however come across an old house hidden in the woods. You are"+\
@@ -141,73 +132,136 @@ def Rchoice2 ():
                              " clothes. Turns out she is actually a powerful caster, and she's very mad at you. You see"+\
                              " a fireball begin to burn in her hand, and she prepares to attack.")
                              
-     
-    lastbattle()
-
-
-def lastbattle ():
+        
     witchhp = random.randint (20,25)
     witchdmg = random.randint (3, 20)
-    playerhealth2 = random.randint (20, 30)
-    playerdamage2 = random.randint (5, 25)
-    while playerhealth2 >= 0 or witchhp >= 0:
+    playerhealth = random.randint (20, 30)
+    playerdamage = random.randint (5, 25)
+    while playerhealth >= 0 or witchhp >= 0:
         attack = simpledialog.askinteger (" Press 1 to attack.",
-                                            " To attack, press 1. " )
+                                                  " To attack, press 1. " )
         
 
 
         if attack == 1:
-            witchhp -= playerdamage2
-            playerhealth2 -= witchdmg
+            witchhp -= playerdamage
+            playerhealth -= witchdmg
             messagebox.showinfo ("Witch Battle",
             "You took {} damage.".format(witchdmg) +\
-            "Your health is now: {}".format(playerhealth2)+\
+            "Your health is now: {}".format(playerhealth)+\
             "The witch has {} health" .format(witchhp))
-        if playerhealth2 <= 0 or witchhp <= 0:
-            break 
+            if playerhealth <= 0 or witchhp <= 0:
+                break 
 
-    if playerhealth2 <= 0:
+    if playerhealth <= 0:
         messagebox.showinfo("You died",
-                                "The old lady laughs as you fall dead to teh floor."+\
+                                "The old lady laughs ss you fall dead to teh floor."+\
                                 " 'Thats what you deserve for stealing from old ladies."+\
                                 " Now you'll never do it again. Tehehehehe' she says as"+\
                                 " she loots your dead body.")
         root.destroy()
-
-    
-
-    elif playerhealth2 >= 1:
+    elif playerhealth >= 1:
         messagebox.showinfo (" You won ",
                                  " Somehow, you managed to kill the old lady.")
 
         messagebox.showinfo (" You kill the old lady...",
                                      " The witch falls dead at you feet, and you proceed to loot"+\
                                      " her house. You really didn't learn anything did you?")
-        root.destroy
+        root.destroy()
 
-                
 
     
-                        
-    
+def striaght():
+    messagebox.showinfo (" Striaght",
+                         " You're pretty sure the map said to keep going forward."+\
+                         " You walk for what seems like hours with no sign of the"+\
+                         " dungeon. You keep walking, and you start to get the feeling"+\
+                         " that you're being followed. You turn around, and see a huge"+\
+                         " owl bear in a tree behind you! It jumps down and prepares to"+\
+                         " fight.")
+
+          
+    owlhp = random.randint (10,25)
+    owldmg = random.randint (1, 12)
+    playerhealth = random.randint (20, 30)
+    playerdamage = random.randint (5, 25)
+    while playerhealth >= 0 or owlhp >= 0:
+        attack = simpledialog.askinteger (" Press 1 to attack.",
+                                             " To attack, press 1. " )
+        
+
+
+        if attack == 1:
+            owlhp -= playerdamage
+            playerhealth -= owldmg
+            messagebox.showinfo ("OWLBEAR Battle",
+            "You took {} damage.".format(owldmg) +\
+            "Your health is now: {}".format(playerhealth)+\
+            "The owl bear has {} health" .format(owlhp))
+            if playerhealth <= 0 or owlhp <= 0:
+                break 
+
+    if playerhealth <= 0:
+            messagebox.showinfo("You died",
+                                " The owl bear chirps in happiness as you fall to the floor"+\
+                                " It calls out, and a bunch of cute little owl bear babies"+\
+                                " fall down from their nest and start to eat you.")
+                            
+            root.destroy()
+    elif playerhealth >= 1:
+            messagebox.showinfo (" You won ",
+                                 " You manage to scare the owlbear away, and watch has it climbs back up."+\
+                                 " its tree. You realize you chose the wrong way, and that it would be best"+\
+                                 " to just head back to town. You head back, and try to sneak to your house, "+\
+                                 " but sadly the town guards see you. They arrest you for being a jerk and for"+\
+                                 " stealing. You slowly rot away in the town prison for the rest of your life. "+\
+                                 " No one comes to visit you, except the old lady, who comes by once in awhile"+\
+                                 " to laugh.")
+            root.destroy()
+
+
+
     
 
 
 
 ############################## Alexis' Function #################################
 def choice2():
-    choice = simpledialog.askinteger("Choose wisely",
-                                     "This is the next part of the story.  Now you must choose 1 or 2 again.")
-    if (choice == 1):
-        messagebox.showinfo("The End",
-                            "You chose right1.  THE END")
+    choice = messagebox.showinfo("You walk past her",
+                                     " Trying to avoid eye contact with the old lady you quickly"+\
+                                     "  pull your hand up to your face and sheild your view of her as"+
+                                     " you walk past her, leaving her struggling to get up. After crossing"+\
+                                     " the street you look to where the old lady was still attempting to get"+\
+                                     " to her feet and think about going back to help her.")
 
-    elif (choice == 2):
+    messagebox.showinfo ("Help or Leave",
+                             "As you sit there the old lady glances across the steet and notices you."+\
+                             "You are left with the choice to either go and help her up or turn "+\
+                             "around and leave her in the street.")
+        
+    leaveorhelp = simpledialog.askinteger ( "Help or Leave",
+                                              "Press 1 to help, or 2 to leave."
+                                              "You decide to...")
+                              
+
+                         
+    if (leaveorhelp == 1):
+        messagebox.showinfo("Change of Heart",
+                            "You feel bad for leaving the old lady laying in  the street"+\
+                            "and you go back to help her up. She struggles for a momnet but"+\
+                            "seems alright when she finally gets to her feet.'Why thank you"+\
+                            "young traveler, I would have never been able to get up all by my"+\
+                            "self. I appreciate your assistance!'she says while fishing around"+\
+                            "in her purse. After a moment she pulls out an old tatterd look paper"+\
+                            "and places it in your hand.'I think you deserve this for your good deed"+\
+                            "today,it is very fragile but of great importance! Do not loose this and"+\
+                            "make sure you are well prepared before setting off. Have a nice day now.'"+\
+                            "She takes off down the street as you stare at the paper in your hand.")
+        messagebox.showinfo()
+
+    elif (leaveorhelp == 2):
         messagebox.showinfo("The End",
                             "You chose ok2.  THE END")
-    elif (choice == 3):
-        messagebox.showinfo("The End",
-                            "You chose ok3.  THE END")
         
     else:
         choice2()
