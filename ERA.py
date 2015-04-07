@@ -270,7 +270,7 @@ def choice2():
 
 
 ############################## Evelyn's Function ################################
-def choice3():
+def helpOldLady():
     choice = simpledialog.askinteger("Choose wisely",
                                      "This is the next part of the story.  Now you must choose 1 or 2 again.")
     if (choice == 1):
@@ -285,7 +285,7 @@ def choice3():
                             "You chose ok3.  THE END")
         
     else:
-        choice1()
+        helpOldLady()
 
 
 
