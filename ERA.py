@@ -69,6 +69,7 @@ def choice1():
 
 ############################## Alexis' Function #################################
 def ignoreOldLady():
+    """Ignore Helping the old lady"""
     choice = messagebox.showinfo("Walk Past Her",
                                      " Trying to avoid eye contact with the old lady you quickly"+\
                                      "  pull your hand up to your face and sheild your view of her as"+
@@ -104,7 +105,14 @@ def ignoreOldLady():
                             "You unfold the paper in your hand very carefully. Finally "+\
                             " opening the entire paper you realize this is a treasure map!"+\
                             " As you study the map you think back to what the old lady had said."+\
-                            " 'She said something about being well prepaired'")
+                            " 'She said something about being well prepaired.' You can either "+\
+                            " prepare yourself first (1) or try to go without any supplies (2).")
+        
+        getting_ready = simpledialog.askinteger("Getting Ready",
+                               "Supplies(1), Empty Handed(2)"+\
+                               "You decide to...")
+        
+        
 
     elif (leaveorhelp == 2):
         messagebox.showinfo("Ignore Her",
@@ -112,9 +120,75 @@ def ignoreOldLady():
                             " You walk around town and look through the shops, forgetting"+\
                             " about the old lady. Eventually you get bored and go home to"+\
                             " live out your boring life. THE END.")
+        root.destroy()
         
     else:
-        choice2()
+        ignoreOldLady()
+
+    if getting_ready == 1:
+        Prepaired()
+
+    elif getting_ready == 2:
+        Unprepaired()
+
+    else:
+        ignoreOldLady()
+        
+
+def Prepaired():
+    """Prepairing for battle"""
+    gold = 10 
+    messagebox.showinfo("Gearing Up",
+                        "You walk into town while counting your money."+\
+                        "You count out 10 gold as you walk into the town square."+\
+                        "Looking around you decide to go into the blacksmith." )
+    messagebox.showinfo("Blacksmith",
+                        "You walk into the store and are welcomed in by the shopkeeper."+\
+                        " 'What can i get for you today?' You think for a momment and decide"+\
+                        " to purchase... A Sword(1), Chestplate(2), or both the Sword and Chestplate(3).")
+    purchase = simpledialog.askinteger("Purchase",
+                            "Sword (1) cost 5 gold, Chestplate(2) cost 5 gold, Both(3) cost 10 gold,"+\
+                            "You decide to purchase...")
+    if purchase == 1:
+        gold = gold - 5
+
+        messagebox.showinfo("Let's Go!",
+                            "Now that you're looking good but broke you set off in the"+\
+                            "direction the map specifies with your sword and chestplate.")
+    elif purchase == 2:
+        gold = gold - 5
+
+        messagebox.showinfo("Protected",
+                            "Now that you can almost gurantee you most likely won't"+\
+                            " get stabed through the chest you feel safe enough to set"+\
+                            " of into the direction the map specifies.")
+    elif purchase == 3:
+        gold = gold - 10
+
+        messagebox.showinfo("Let's Go!",
+                            "Now that you're looking good but broke you set off in the"+\
+                            "direction the map specifies with your sword and chestplate.")
+    else:
+        Prepaired()
+    
+
+
+def Unprepaired():
+    """Going to die"""
+    messagebox.showinfo("Unsafe",
+                        "You decide not to take the old ladys warning and figure you"+\
+                        " can handle whatever it is this old lady is so affraid of, besides"+\
+                        " its probably not that big of a deal anyways.")
+    messagebox.showinfo("Fight!",
+                        "As you walk along the trail paying close attention to the map,"+\
+                        " you hear a low angry growl...You slowly peek up from the map"+\
+                        " and see a very ")
+
+    
+        
+    
+        
+        
 
 
 
