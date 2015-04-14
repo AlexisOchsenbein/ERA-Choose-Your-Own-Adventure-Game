@@ -116,17 +116,19 @@ def ignoreOldLady():
 
     elif (leaveorhelp == 2):
         messagebox.showinfo("Ignore Her",
-                            "You decide she dosent need your help and walk away."+\
+                            " You decide she dosent need your help and walk away."+\
                             " You walk around town and look through the shops, forgetting"+\
                             " about the old lady. Eventually you get bored and go home to"+\
                             " live out your boring life. THE END.")
         root.destroy()
+                                            ###WHY ERROR WHEN ENDDING leaveorhelp == 2 ?###
         
     else:
         ignoreOldLady()
 
     if getting_ready == 1:
         Prepaired()
+        
 
     elif getting_ready == 2:
         Unprepaired()
@@ -137,28 +139,31 @@ def ignoreOldLady():
 
 def Prepaired():
     """Prepairing for battle"""
-    gold = 10 
+    gold = 10
+    
     messagebox.showinfo("Gearing Up",
                         "You walk into town while counting your money."+\
                         "You count out 10 gold as you walk into the town square."+\
                         "Looking around you decide to go into the blacksmith." )
+    
     messagebox.showinfo("Blacksmith",
                         "You walk into the store and are welcomed in by the shopkeeper."+\
                         " 'What can i get for you today?' You think for a momment and decide"+\
                         " to purchase... A Sword(1), Chestplate(2), or both the Sword and Chestplate(3).")
+    
     purchase = simpledialog.askinteger("Purchase",
                             "Sword (1) cost 5 gold, Chestplate(2) cost 5 gold, Both(3) cost 10 gold,"+\
                             "You decide to purchase...")
     if purchase == 1:
         gold = gold - 5
 
-        messagebox.showinfo("Let's Go!",
-                            "Now that you're looking good but broke you set off in the"+\
-                            "direction the map specifies with your sword and chestplate.")
+        messagebox.showinfo("This Will Do.",
+                            "Now that you've got your sword you set of in the direction" +\
+                            " that the map specifies.")
     elif purchase == 2:
         gold = gold - 5
 
-        messagebox.showinfo("Protected",
+        messagebox.showinfo("Protected.",
                             "Now that you can almost gurantee you most likely won't"+\
                             " get stabed through the chest you feel safe enough to set"+\
                             " of into the direction the map specifies.")
@@ -170,6 +175,10 @@ def Prepaired():
                             "direction the map specifies with your sword and chestplate.")
     else:
         Prepaired()
+
+        messagebox.showinfo("Bear,",
+                            "As you walk through the forest following the map you run into an angry"+\
+                            " bear")
     
 
 
@@ -177,15 +186,30 @@ def Unprepaired():
     """Going to die"""
     messagebox.showinfo("Unsafe",
                         "You decide not to take the old ladys warning and figure you"+\
+                        
                         " can handle whatever it is this old lady is so affraid of, besides"+\
                         " its probably not that big of a deal anyways.")
     messagebox.showinfo("Fight!",
                         "As you walk along the trail paying close attention to the map,"+\
                         " you hear a low angry growl...You slowly peek up from the map"+\
-                        " and see a very ")
+                        " and see a very angry looking mother bear.")
+
+    messagebox.showinfo("Died,",
+                        "You are now looking right into the bears eyes and"+\
+                        " she dosent look like she's going to let you go without"+\
+                        " a fight. About this time you really regret not buying anything"+\
+                        " to protect yourself back at the store. The Mother bear stands up and"+\
+                        " takes you out with one big swipe of her claw and rips open your chest."+\
+                        " Your body is left in the forest to be eaten by the bear cubs and any other"+\
+                        " critter that walks by your corpse."+\
+                        " THE END.")
+
+                            ### Why errror when ending def Unprepaired? ###
+root.destroy()
+    
 
     
-        
+    
     
         
         
