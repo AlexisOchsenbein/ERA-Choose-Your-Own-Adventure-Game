@@ -66,6 +66,8 @@ def choice1():
         Rchoice1()
     elif leftorright ==2:
         Rchoice2()
+    else
+        choice1()
 
 def Rchoice1 ():
     messagebox.showinfo(" Right",
